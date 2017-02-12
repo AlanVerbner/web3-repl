@@ -1,0 +1,24 @@
+{
+  "name": "web3-repl",
+  "version": "1.0.0",
+  "description": "Ethereum REPL made with NodeJs + web3.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AlanVerbner/web3-repl.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "web3-repl": "index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "1.1.3",
+    "commander": "2.9.0",
+    "web3": "0.18.2"
+  }
+}
