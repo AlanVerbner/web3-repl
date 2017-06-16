@@ -41,6 +41,7 @@ const printStatus = (web3) => () => {
   ${chalk.green("Peer Count       : " + web3.net.peerCount)}
   ${chalk.green("Web3 api version : " + web3.version.api)}
   ${chalk.green("ETC fork?        : " + isETCFork(web3))}
+  ${chalk.green("Coinbase         : " + web3.eth.coinbase)}
   `);
   } catch (err) {
     console.error(chalk.red(err));
