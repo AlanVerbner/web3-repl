@@ -2,6 +2,7 @@
 
 const repl = require("repl");
 const Web3 = require("web3");
+const utils = require("ethereumjs-util");
 const program = require('commander');
 const chalk = require("chalk");
 const package = require("./package.json");
@@ -65,4 +66,5 @@ var replServer = repl.start({
 });
 
 replServer.context.web3 = web3;
+replServer.context.utils = utils;
 replServer.context.status = printStatus(web3);
