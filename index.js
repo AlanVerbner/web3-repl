@@ -2,6 +2,7 @@
 
 const repl = require("repl");
 const Web3 = require("web3");
+const utils = require("ethereumjs-util");
 const program = require('commander');
 const chalk = require("chalk");
 const package = require("./package.json");
@@ -41,6 +42,7 @@ const printStatus = (web3) => () => {
   ${chalk.green("Peer Count       : " + web3.net.peerCount)}
   ${chalk.green("Web3 api version : " + web3.version.api)}
   ${chalk.green("ETC fork?        : " + isETCFork(web3))}
+  ${chalk.green("Coinbase         : " + web3.eth.coinbase)}
   `);
   } catch (err) {
     console.error(chalk.red(err));
@@ -64,4 +66,5 @@ var replServer = repl.start({
 });
 
 replServer.context.web3 = web3;
+replServer.context.utils = utils;
 replServer.context.status = printStatus(web3);
