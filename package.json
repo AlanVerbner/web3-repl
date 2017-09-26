@@ -1,6 +1,6 @@
 {
   "name": "web3-repl",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Ethereum REPL made with NodeJs + web3.js",
   "repository": {
     "type": "git",
