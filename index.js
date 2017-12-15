@@ -63,7 +63,7 @@ program
   .option("-p, --provider [url]", "Web3JS RPC provider")
   .option("-s, --skip-status", "Does not show status after bootstrap")
   .option(
-    "-h, --history-file [path]",
+    "-hf, --history-file [path]",
     "File path of commands history file (defaults to $HOME/.web3_repl_history)"
   )
   .parse(process.argv);
