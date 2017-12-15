@@ -5,6 +5,8 @@ const Web3 = require("web3");
 const utils = require("ethereumjs-util");
 const program = require('commander');
 const chalk = require("chalk");
+const web3Admin = require("./web3Admin");;
+
 const package = require("./package.json");
 
 const defaultProvider = "http://localhost:8545"
@@ -64,6 +66,8 @@ var replServer = repl.start({
   prompt: "> ",
   ignoreUndefined: true
 });
+
+web3Admin.extend(web3);
 
 replServer.context.web3 = web3;
 replServer.context.utils = utils;
