@@ -5,7 +5,10 @@ const Web3 = require("web3");
 const utils = require("ethereumjs-util");
 const program = require('commander');
 const chalk = require("chalk");
-const web3Admin = require("./web3Admin");;
+const web3Admin = require("./web3Admin");
+const os = require('os');
+
+const path = require('path');
 
 const package = require("./package.json");
 
@@ -55,17 +58,24 @@ program
   .version(package.version)
   .option('-p, --provider [url]', 'Web3JS RPC provider')
   .option('-s, --skip-status', 'Does not show status after bootstrap')
+  .option('-h, --history-file [path]', 'File path of commands history file (defaults to $HOME/.web3_repl_history)')
   .parse(process.argv);
 
 printHeader();
 
 const web3 = new Web3(new Web3.providers.HttpProvider(program.provider || defaultProvider));
-if (!program.skip_status) printStatus(web3)();
+if (!program.skipStatus) printStatus(web3)();
 
 var replServer = repl.start({
   prompt: "> ",
   ignoreUndefined: true
 });
+
+const historyFile = program.historyFile ? 
+program.historyFile : 
+path.join(os.homedir(), '.web3_repl_history');
+
+require('repl.history')(replServer, historyFile);
 
 web3Admin.extend(web3);
 
