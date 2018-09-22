@@ -1,7 +1,7 @@
 'use strict';
 
 const chalk = require("chalk");
-const { isETCFork } = require("./network");
+const { isETCFork } = require("../network");
 
 const printStatus = web3 => () => {
   try {
